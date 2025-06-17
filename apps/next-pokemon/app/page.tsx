@@ -16,15 +16,12 @@ export default async function Index() {
   );
 
   useEffect(() => {
-    console.log('homepage effect running....');
     fetch(`http://localhost:3333/api/search?q=${search}`)
       .then((res) => res.json())
       .then((payload) => {
         setPokemons(payload);
       });
   }, [search]);
-
-  console.log('homepage re-rending...');
 
   return (
     <div className={styles.page}>
